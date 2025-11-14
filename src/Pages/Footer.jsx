@@ -9,7 +9,7 @@ export default function Footer() {
       
       className="w-full bg-black text-white py-12 px-6 md:px-16"
     >
-      <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-3 overflow-hidden gap-10">
 
         {/* Brand section */}
         <motion.div
