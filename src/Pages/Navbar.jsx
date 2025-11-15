@@ -8,10 +8,14 @@ export default function Navbar() {
   const closeMenu = () => setOpen(false);
 
   return (
-    <nav className="w-full bg-black text-white fixed top-0 z-30 shadow-md px-6 py-4">
-      <div className="flex items-center justify-around max-w-7xl mx-auto">
+    <nav className="w-full bg-black text-white fixed top-0 z-300 shadow-md px-6 py-4">
+      <div className="flex items-center justify-between sm:justify-around max-w-7xl mx-auto">
         {/* Logo */}
-        <h1 className="text-2xl font-bold">MyLogo</h1>
+        <div className="h-10 w-10 rounded-full">
+           <Link to="/">
+            <img src="/logo.png" alt="Logo" className="rounded-full h-full w-full" />
+            </Link>
+        </div>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-8 text-lg font-medium">
@@ -78,7 +82,7 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         <div 
-          className={`fixed top-0 border-l-2 border-white right-0 h-full w-80 bg-black text-white transform transition-transform duration-500 ease-in-out z-50 shadow-2xl md:hidden ${
+          className={`fixed top-0 z-30 border-l-2 border-white right-0 h-full w-80 bg-black text-white transform transition-transform duration-500 ease-in-out z-50 shadow-2xl md:hidden ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
         >

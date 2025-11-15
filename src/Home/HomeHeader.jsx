@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function HomeHeader() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  
+
   const slides = [
     {
       id: 1,
@@ -55,9 +55,8 @@ export default function HomeHeader() {
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
-            }`}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'
+              }`}
           >
             {/* Multi-layer Background Effect */}
             <div className="absolute inset-0">
@@ -68,7 +67,7 @@ export default function HomeHeader() {
                 className="w-full h-full object-cover transform scale-105"
               />
             </div>
-            
+
             {/* Animated Gradient Overlay */}
             <div className={`absolute inset-0 bg-gradient-to-r ${slide.color} mix-blend-overlay animate-pulse-slow`}></div>
           </div>
@@ -79,16 +78,22 @@ export default function HomeHeader() {
       <div className="relative z-20 h-full flex items-center">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            
+
             {/* Text Content - Left Side */}
-            <div className="text-white space-y-8 transform transition-all duration-1000 ease-out">
-              <div className={`transition-all duration-1000 delay-300 ${
-                currentSlide === 0 ? 'translate-x-0 opacity-100' : 
-                currentSlide === 1 ? 'translate-x-4 opacity-100' : 
-                'translate-x-8 opacity-100'
-              }`}>
-                <h1 className="text-4xl lg:text-8xl font-bold mb-4 tracking-tight">
-                  {slides[currentSlide].title.split(' ').map((word, index) => (
+            <div className="text-white space-y-8 w-full px-6 sm:px-10 md:px-14 text-center sm:text-left transform transition-all duration-1000 ease-out">
+
+              {/* Slide Content */}
+              <div
+                className={`transition-all duration-1000 delay-300 ${currentSlide === 0
+                    ? "translate-x-0 opacity-100"
+                    : currentSlide === 1
+                      ? "translate-x-4 opacity-100"
+                      : "translate-x-8 opacity-100"
+                  }`}
+              >
+                {/* Title */}
+                <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 tracking-tight leading-tight text-center sm:text-left">
+                  {slides[currentSlide].title.split(" ").map((word, index) => (
                     <span
                       key={index}
                       className="block leading-none bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent animate-gradient"
@@ -97,24 +102,27 @@ export default function HomeHeader() {
                     </span>
                   ))}
                 </h1>
-                
+
+                {/* Subtitle & Description */}
                 <div className="space-y-4">
-                  <p className="text-2xl lg:text-3xl font-light text-gray-200 tracking-wide">
+                  <p className="text-xl sm:text-2xl lg:text-3xl font-light text-gray-200 tracking-wide text-center sm:text-left">
                     {slides[currentSlide].subtitle}
                   </p>
-                  <p className="text-lg lg:text-xl text-gray-300 max-w-md leading-relaxed">
+
+                  <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-xl leading-relaxed mx-auto sm:mx-0 text-center sm:text-left">
                     {slides[currentSlide].description}
                   </p>
                 </div>
               </div>
 
               {/* CTA Button */}
-              <button className="group relative overflow-hidden bg-white text-black sm:px-8 sm:py-4 py-2 px-4 rounded-full font-semibold text-lg tracking-wide transform hover:scale-105 transition-all duration-500 hover:shadow-2xl">
+              <button className="group relative overflow-hidden bg-white text-black px-5 py-2 sm:px-6 sm:py-3 rounded-full font-semibold text-lg tracking-wide transform hover:scale-105 transition-all duration-500 hover:shadow-2xl mx-auto sm:mx-0">
                 <span className="relative z-10">{slides[currentSlide].cta}</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
                 <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-30 group-hover:animate-shine"></div>
               </button>
             </div>
+
 
             {/* Image Preview - Right Side */}
             <div className="relative hidden lg:block">
@@ -122,13 +130,12 @@ export default function HomeHeader() {
                 {slides.map((slide, index) => (
                   <div
                     key={slide.id}
-                    className={`absolute inset-0 transition-all duration-1000 ease-out transform-style-3d ${
-                      index === currentSlide
+                    className={`absolute inset-0 transition-all duration-1000 ease-out transform-style-3d ${index === currentSlide
                         ? 'opacity-100 scale-100 rotate-y-0'
                         : index < currentSlide
-                        ? 'opacity-0 scale-90 -rotate-y-12 translate-x-20'
-                        : 'opacity-0 scale-90 rotate-y-12 -translate-x-20'
-                    }`}
+                          ? 'opacity-0 scale-90 -rotate-y-12 translate-x-20'
+                          : 'opacity-0 scale-90 rotate-y-12 -translate-x-20'
+                      }`}
                   >
                     <div className="relative w-80 h-96 mx-auto">
                       <div className="absolute inset-0 bg-white/40 backdrop-sm rounded-2xl transform rotate-10 scale-105"></div>
@@ -156,7 +163,7 @@ export default function HomeHeader() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
       </button>
-      
+
       <button
         onClick={nextSlide}
         className="absolute sm:flex hidden  right-6 top-1/2 transform -translate-y-1/2 z-30 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-4 transition-all duration-300 group"
@@ -172,11 +179,10 @@ export default function HomeHeader() {
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-500 ${
-              index === currentSlide
+            className={`w-3 h-3 rounded-full transition-all duration-500 ${index === currentSlide
                 ? 'bg-white scale-125'
                 : 'bg-white/50 hover:bg-white/80'
-            }`}
+              }`}
           />
         ))}
       </div>

@@ -111,8 +111,8 @@ export default function AboutValues() {
                     viewport={{ once: true }}
                     className="text-center mt-7 mb-2"
                 >
-                    <Link to='/service'>
-                        <button className="bg-black text-white px-12 py-4 rounded-full font-semibold text-lg hover:bg-gray-800 transform hover:scale-105 transition-all duration-300 shadow-lg">
+                    <Link to='/services'>
+                        <button className="bg-black text-white px-7 py-3 rounded-full font-semibold text-lg hover:bg-gray-800 transform hover:scale-105 transition-all duration-300 shadow-lg">
                             Discover Our Collection
                         </button>
                     </Link>
