@@ -131,7 +131,7 @@ export default function Navbar() {
 
           {/* Footer in mobile menu */}
           <div className="absolute bottom-8 left-0 right-0 text-center text-gray-400 text-sm">
-            <p>MyLogo © 2024</p>
+            <p>HC-Collection © 2025</p>
           </div>
         </div>
       </div>
