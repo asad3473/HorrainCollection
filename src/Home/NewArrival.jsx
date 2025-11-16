@@ -7,7 +7,7 @@ export default function NewArrival() {
             id: 1,
             title: "Designer Lehenga Set",
             price: "₹15,999",
-            image: "https://img.freepik.com/premium-photo/showcasing-professional-clothing-with-style-sophistication-isolation-clean-background_1020495-69898.jpg?ga=GA1.1.1146211304.1754028702&semt=ais_incoming&w=740&q=80",
+            image: "/Catalogue/product (2).jpeg",
             badge: "New",
         },
         {
@@ -69,7 +69,7 @@ export default function NewArrival() {
                             </div>
 
                             {/* Badge */}
-                            <div className="absolute top-4 left-4">
+                            <div className="absolute top-4 right-4">
                                 <span className="bg-black text-white px-3 py-1 rounded-full text-sm font-semibold">
                                     {featuredProduct.badge}
                                 </span>

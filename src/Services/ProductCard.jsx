@@ -52,7 +52,7 @@ export default function ProductCard({ product }) {
           <motion.img
             src={product.img}
             alt={product.title}
-            className="w-full h-80 object-cover"
+            className="w-full h-[80%] object-cover"
             animate={{
               scale: isHovered ? 1.15 : 1,
               rotate: isHovered ? 1 : 0
@@ -74,7 +74,7 @@ export default function ProductCard({ product }) {
           whileInView={{ scale: 1, rotate: 0 }}
           whileHover={{ scale: 1.1, rotate: 5 }}
           transition={{ duration: 0.4, delay: 0.2 }}
-          className="absolute top-4 left-4 z-20"
+          className="absolute top-4 right-4 z-20"
         >
           <span className="bg-black/90 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-semibold shadow-2xl border border-white/20">
             {product.category}

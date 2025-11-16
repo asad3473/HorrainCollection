@@ -54,9 +54,9 @@ export default function Services() {
           <option>All</option>
           <option>Stitched</option>
           <option>Unstitched</option>
-          <option>Kurtis</option>
-          <option>Formal</option>
-          <option>Casual</option>
+          <option>Winter</option>
+          <option>Khadar</option>
+          <option>Shawl</option>
         </select>
       </div>
 

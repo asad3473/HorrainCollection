@@ -8,70 +8,70 @@ export default function PopularCategory() {
             id: 1,
             title: "Embroidered Lehenga",
             price: "₹12,999",
-            image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+            image: "/Catalogue/product (1).jpeg",
             colors: ["#FF6B6B", "#4ECDC4", "#45B7D1"]
         },
         {
             id: 2,
             title: "Designer Saree",
             price: "₹8,499",
-            image: "https://images.unsplash.com/photo-1581044777550-4cfa60707c03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+            image: "/Catalogue/product (2).jpeg",
             colors: ["#FF9999", "#C44569", "#786FA6"]
         },
         {
             id: 3,
             title: "Anarkali Suit",
             price: "₹6,999",
-            image: "https://www.limelight.pk/cdn/shop/files/A3286SH-SML-034-KhaddarShirt_Pret_1.jpg?v=1762930291&width=533",
+            image: "/Catalogue/product (3).jpeg",
             colors: ["#F8A5C2", "#574B90", "#F78FB3"]
         },
         {
             id: 4,
             title: "Party Wear Gown",
             price: "₹15,999",
-            image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+            image: "/Catalogue/product (4).jpeg",
             colors: ["#E66767", "#303952", "#CF6A87"]
         },
         {
             id: 5,
             title: "Traditional Salwar",
             price: "₹5,499",
-            image: "https://www.limelight.pk/cdn/shop/files/A0696SU-SML-582-3-PieceCrepeSuit-Embroidered_Pret_1.jpg?v=1762852750&width=533",
+            image: "/Catalogue/product (5).jpeg",
             colors: ["#F19066", "#546DE5", "#E15F41"]
         },
         {
             id: 6,
             title: "Bridal Collection",
             price: "₹25,999",
-            image: "https://www.sokamal.com/cdn/shop/files/916_6.jpg?v=1761827195&width=500",
+            image: "/Catalogue/product (6).jpeg",
             colors: ["#FF9FF3", "#F368E0", "#FF6B6B"]
         },
         {
             id: 7,
             title: "Casual Kurti",
             price: "₹3,999",
-            image: "https://cdn.shopify.com/s/files/1/2337/7003/files/media_image-a12e90a68ab146cbae534e98c33db9a3_fdb6a398-8dba-4c44-aa48-4b87c53d2b84.webp?v=1761568790&width=600&format=webp",
+            image: "/Catalogue/product (7).jpeg",
             colors: ["#00D2D3", "#54A0FF", "#5F27CD"]
         },
         {
             id: 8,
             title: "Designer Blouse",
             price: "₹4,999",
-            image: "https://images.unsplash.com/photo-1581044777550-4cfa60707c03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+            image: "/Catalogue/product (8).jpeg",
             colors: ["#FF9F43", "#EE5A24", "#FEA47F"]
         },
         {
             id: 9,
             title: "Silk Saree",
             price: "₹11,999",
-            image: "https://cdn.shopify.com/s/files/1/2337/7003/files/5eaeda3be2d56ea0462dc2aad9f01009.jpg?v=1746595017&width=600&format=webp",
+            image: "/Catalogue/product (8).jpeg",
             colors: ["#D6A2E8", "#82589F", "#FDA7DF"]
         },
         {
             id: 10,
             title: "Festival Wear",
             price: "₹7,999",
-            image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+            image: "/Catalogue/product (9).jpeg",
             colors: ["#B33771", "#6D214F", "#FC427B"]
         }
     ];
@@ -132,7 +132,7 @@ export default function PopularCategory() {
                                     <img
                                         src={category.image}
                                         alt={category.title}
-                                        className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700"
+                                        className="w-full  object-cover transform hover:scale-110 transition-transform duration-700"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
                                 </div>

@@ -97,7 +97,8 @@ export default function ProductDetail() {
                                 transition={{ duration: 0.5 }}
                                 src={selectedImage}
                                 alt={product.title}
-                                className="w-full h-96 lg:h-[500px] object-cover cursor-zoom-in hover:scale-105 transition-transform duration-700"
+                                style={{backgroundSize:'100% 100%'}}
+                                className="w-full h-96 lg:h-[500px]  cursor-zoom-in hover:scale-105 transition-transform duration-700"
                             />
                         </div>
 
@@ -207,17 +208,25 @@ export default function ProductDetail() {
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                     onClick={handleAddToCart}
-                                    className="flex-1 bg-black text-white py-4 rounded-xl font-semibold text-lg hover:bg-gray-800 transition-all duration-300"
+                                    className=" px-5 bg-black text-white py-4 rounded-xl font-semibold text-lg hover:bg-gray-800 transition-all duration-300"
                                 >
-                                    Add to Cart
+                                    Cash on Delivery
                                 </motion.button>
                                 <motion.button
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                     onClick={handleBuyNow}
-                                    className="flex-1 bg-white text-black border-2 border-black py-4 rounded-xl font-semibold text-lg hover:bg-black hover:text-white transition-all duration-300"
+                                    className=" px-4 bg-white text-black border-2 border-black py-4 rounded-xl font-semibold text-lg hover:bg-black hover:text-white transition-all duration-300"
                                 >
-                                    Buy Now
+                                    EasyPaisa/Jazzcash
+                                </motion.button>
+                                <motion.button
+                                    whileHover={{ scale: 1.02 }}
+                                    whileTap={{ scale: 0.98 }}
+                                    onClick={handleBuyNow}
+                                    className=" px-4 bg-white text-black border-2 border-black py-4 rounded-xl font-semibold text-lg hover:bg-black hover:text-white transition-all duration-300"
+                                >
+                                    Bank Transfer
                                 </motion.button>
                             </div>
                         </div>
