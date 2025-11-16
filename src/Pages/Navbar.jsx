@@ -13,7 +13,7 @@ export default function Navbar() {
         {/* Logo */}
         <div className="h-10 w-10 rounded-full">
            <Link to="/">
-            <img src="/logo.png" alt="Logo" className="rounded-full h-full w-full" />
+            <img title="HorrainCollection" src="/logo.png" alt="Logo" className="rounded-full h-full w-full" />
             </Link>
         </div>
 

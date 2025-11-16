@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 export default function ProductCard({ product }) {
   const [isHovered, setIsHovered] = useState(false);
+  const navigate=useNavigate()
+  const Routings = () => {
+    navigate(`/productDetail/${product.id}`);
+  }
 
   return (
     <motion.div
@@ -124,6 +129,7 @@ export default function ProductCard({ product }) {
               ♡
             </motion.button>
           </div>
+          <span className="" onClick={Routings}>See more</span>
         </motion.div>
 
         {/* Floating Particles Effect on Hover */}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function HomeHeader() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -85,10 +86,10 @@ export default function HomeHeader() {
               {/* Slide Content */}
               <div
                 className={`transition-all duration-1000 delay-300 ${currentSlide === 0
-                    ? "translate-x-0 opacity-100"
-                    : currentSlide === 1
-                      ? "translate-x-4 opacity-100"
-                      : "translate-x-8 opacity-100"
+                  ? "translate-x-0 opacity-100"
+                  : currentSlide === 1
+                    ? "translate-x-4 opacity-100"
+                    : "translate-x-8 opacity-100"
                   }`}
               >
                 {/* Title */}
@@ -116,11 +117,13 @@ export default function HomeHeader() {
               </div>
 
               {/* CTA Button */}
-              <button className="group relative overflow-hidden bg-white text-black px-5 py-2 sm:px-6 sm:py-3 rounded-full font-semibold text-lg tracking-wide transform hover:scale-105 transition-all duration-500 hover:shadow-2xl mx-auto sm:mx-0">
-                <span className="relative z-10">{slides[currentSlide].cta}</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-                <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-30 group-hover:animate-shine"></div>
-              </button>
+              <Link to='/services'>
+                <button className="group relative overflow-hidden bg-white text-black px-5 py-2 sm:px-6 sm:py-3 rounded-full font-semibold text-lg tracking-wide transform hover:scale-105 transition-all duration-500 hover:shadow-2xl mx-auto sm:mx-0">
+                  <span className="relative z-10">{slides[currentSlide].cta}</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                  <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-30 group-hover:animate-shine"></div>
+                </button>
+              </Link>
             </div>
 
 
@@ -131,10 +134,10 @@ export default function HomeHeader() {
                   <div
                     key={slide.id}
                     className={`absolute inset-0 transition-all duration-1000 ease-out transform-style-3d ${index === currentSlide
-                        ? 'opacity-100 scale-100 rotate-y-0'
-                        : index < currentSlide
-                          ? 'opacity-0 scale-90 -rotate-y-12 translate-x-20'
-                          : 'opacity-0 scale-90 rotate-y-12 -translate-x-20'
+                      ? 'opacity-100 scale-100 rotate-y-0'
+                      : index < currentSlide
+                        ? 'opacity-0 scale-90 -rotate-y-12 translate-x-20'
+                        : 'opacity-0 scale-90 rotate-y-12 -translate-x-20'
                       }`}
                   >
                     <div className="relative w-80 h-96 mx-auto">
@@ -180,8 +183,8 @@ export default function HomeHeader() {
             key={index}
             onClick={() => setCurrentSlide(index)}
             className={`w-3 h-3 rounded-full transition-all duration-500 ${index === currentSlide
-                ? 'bg-white scale-125'
-                : 'bg-white/50 hover:bg-white/80'
+              ? 'bg-white scale-125'
+              : 'bg-white/50 hover:bg-white/80'
               }`}
           />
         ))}

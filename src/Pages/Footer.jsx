@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <motion.footer
-      
+
       className="w-full bg-black text-white py-12 px-6 md:px-16"
     >
       <div className="max-w-6xl mx-auto grid md:grid-cols-3 overflow-hidden gap-10">
@@ -59,8 +59,9 @@ export default function Footer() {
 
           <div className="flex gap-6 text-3xl">
             <motion.a
+              target="_blank"
               whileHover={{ scale: 1.2 }}
-              href="#"
+              href="https://www.facebook.com/share/1JHgpnaMUB/"
               className="hover:text-gray-300 transition"
             >
               <FaFacebook />
@@ -68,7 +69,8 @@ export default function Footer() {
 
             <motion.a
               whileHover={{ scale: 1.2 }}
-              href="#"
+              target="_blank"
+              href="https://www.instagram.com/hoorain._.collection?igsh=MWxmNnV2aXJtM3h2eg=="
               className="hover:text-gray-300 transition"
             >
               <FaInstagram />
@@ -76,7 +78,8 @@ export default function Footer() {
 
             <motion.a
               whileHover={{ scale: 1.2 }}
-              href="#"
+              href="https://ln.run/qScy_"
+              target="_blank"
               className="hover:text-gray-300 transition"
             >
               <FaTiktok />
