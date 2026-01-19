@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function AboutStory() {
   return (
@@ -21,7 +22,7 @@ export default function AboutStory() {
               alt="Fashion Story"
               className="w-full h-96 object-cover transform group-hover:scale-110 transition-transform duration-700"
             />
-            
+
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
             </div>
@@ -42,7 +43,7 @@ export default function AboutStory() {
         >
           {/* Section Title */}
           <div className="space-y-3">
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -51,8 +52,8 @@ export default function AboutStory() {
             >
               Our Story
             </motion.h2>
-            
-            <motion.div 
+
+            <motion.div
               initial={{ width: 0 }}
               whileInView={{ width: "80px" }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -70,18 +71,18 @@ export default function AboutStory() {
             className="space-y-6 text-gray-700 leading-relaxed"
           >
             <p className="text-lg md:text-xl">
-              HC Collection brings elegance, confidence, and modern style to today's women. 
-              Every piece is created with timeless design, premium quality, and a commitment 
+              HC Collection brings elegance, confidence, and modern style to today's women.
+              Every piece is created with timeless design, premium quality, and a commitment
               to individuality.
             </p>
 
             <p className="text-lg md:text-xl">
-              From minimal chic to luxury casuals, our collections reflect a world where 
+              From minimal chic to luxury casuals, our collections reflect a world where
               fashion and identity come together seamlessly.
             </p>
 
             <p className="text-lg md:text-xl">
-              Founded with a passion for empowering women through fashion, we believe that 
+              Founded with a passion for empowering women through fashion, we believe that
               what you wear should make you feel confident, beautiful, and authentically you.
             </p>
           </motion.div>
@@ -116,9 +117,11 @@ export default function AboutStory() {
             viewport={{ once: true }}
             className="pt-6"
           >
-            <button className="bg-black text-white px-6 py-3 rounded-full font-semibold text-lg hover:bg-gray-800 transform hover:scale-105 transition-all duration-300 shadow-lg">
-              Explore Our Journey
-            </button>
+            <Link to='/services'>
+              <button className="bg-black text-white px-6 py-3 rounded-full font-semibold text-lg hover:bg-gray-800 transform hover:scale-105 transition-all duration-300 shadow-lg">
+                Explore Our Journey
+              </button>
+            </Link>
           </motion.div>
         </motion.div>
       </div>

@@ -11,9 +11,9 @@ export default function Navbar() {
     <nav className="w-full bg-black text-white fixed top-0 z-300 shadow-md px-6 py-4">
       <div className="flex items-center justify-between sm:justify-around max-w-7xl mx-auto">
         {/* Logo */}
-        <div className="h-10 w-10 rounded-full">
+        <div className="h-10 w-10 border border-white  rounded-full">
            <Link to="/">
-            <img title="HorrainCollection" src="/logo.png" alt="Logo" className="rounded-full h-full w-full" />
+            <img title="HorrainCollection" src="/logo.png" alt="Logo" className="rounded-full h-full  w-full" />
             </Link>
         </div>
 

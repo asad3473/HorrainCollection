@@ -1,16 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { FaPhone } from "react-icons/fa";
-import { FaLocationDot, FaLocationPin } from "react-icons/fa6";
+import { FaLocationDot } from "react-icons/fa6";
 import { MdOutlineMarkEmailUnread } from "react-icons/md";
+import emailjs from '@emailjs/browser';
 
 export default function ContactUs() {
+  const formRef = useRef();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     category: "",
     message: ""
   });
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
 
   const handleChange = (e) => {
     setFormData({
@@ -19,10 +24,72 @@ export default function ContactUs() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log(formData);
+    setIsLoading(true);
+    setSubmitStatus(null);
+
+    try {
+      // Add current time for the template
+      const currentTime = new Date().toLocaleString();
+      
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        category: formData.category,
+        message: formData.message,
+        time: currentTime
+      };
+
+      const result = await emailjs.send(
+        'service_wsn5fxf',
+        'template_g2b716l', 
+        templateParams,
+        '7ThdFCHLJ9tz1LpXqvplC'
+      );
+
+      console.log('Email sent successfully:', result);
+      
+      setSubmitStatus({
+        type: 'success',
+        message: 'Message sent successfully! We will get back to you within 24 hours.'
+      });
+      
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        category: "",
+        message: ""
+      });
+
+    } catch (error) {
+      console.error('EmailJS Error Details:', error);
+      
+      let errorMessage = 'Failed to send message. Please try again later.';
+      
+      if (error.text) {
+        errorMessage = error.text;
+      } else if (error.status) {
+        switch (error.status) {
+          case 400:
+            errorMessage = 'Invalid form data. Please check your inputs.';
+            break;
+          case 401:
+            errorMessage = 'Authentication failed. Please check your EmailJS credentials.';
+            break;
+          default:
+            errorMessage = `Error ${error.status}: Please try again.`;
+        }
+      }
+      
+      setSubmitStatus({
+        type: 'error',
+        message: errorMessage
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const containerVariants = {
@@ -80,9 +147,7 @@ export default function ContactUs() {
               variants={itemVariants}
               className="relative"
             >
-              <div className="relative w-full h-80 bg-gradient-to-br from-black/90
-              to-black/10 rounded-3xl overflow-hidden border border-gray-200">
-                {/* Animated Dress */}
+              <div className="relative w-full h-80 bg-gradient-to-br from-black/90 to-black/10 rounded-3xl overflow-hidden border border-gray-200">
                 <motion.div
                   animate={{
                     y: [0, -10, 0],
@@ -95,7 +160,11 @@ export default function ContactUs() {
                   }}
                   className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                 >
-                  <img src="https://cdn3d.iconscout.com/3d/premium/thumb/women-and-man-doing-online-shopping-3d-icon-png-download-8340100.png" alt="missing svg" />
+                  <img 
+                    src="https://cdn3d.iconscout.com/3d/premium/thumb/women-and-man-doing-online-shopping-3d-icon-png-download-8340100.png" 
+                    alt="Online Shopping" 
+                    className="w-64 h-64 object-contain"
+                  />
                 </motion.div>
 
                 {/* Floating Elements */}
@@ -140,19 +209,19 @@ export default function ContactUs() {
             >
               {[
                 {
-                  icon:<MdOutlineMarkEmailUnread />,
+                  icon: <MdOutlineMarkEmailUnread />,
                   title: "Email",
                   info: "info@hccollection.com",
                   delay: 0.2
                 },
                 {
-                  icon:<FaPhone/>,
+                  icon: <FaPhone />,
                   title: "Phone",
                   info: "+92 300 1234567",
                   delay: 0.4
                 },
                 {
-                  icon:<FaLocationDot/>,
+                  icon: <FaLocationDot />,
                   title: "Location",
                   info: "Lahore, Pakistan",
                   delay: 0.6
@@ -179,8 +248,28 @@ export default function ContactUs() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100"
           >
+            {/* Status Message */}
+            {submitStatus && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className={`mb-6 p-4 rounded-xl ${
+                  submitStatus.type === 'success' 
+                    ? 'bg-green-100 text-green-800 border border-green-200' 
+                    : 'bg-red-100 text-red-800 border border-red-200'
+                }`}
+              >
+                <div className="flex items-center">
+                  <span className="text-lg mr-2">
+                    {submitStatus.type === 'success' ? '✅' : '❌'}
+                  </span>
+                  <p className="font-medium">{submitStatus.message}</p>
+                </div>
+              </motion.div>
+            )}
+
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name Field */}
+              {/* Name Field - matches template {{name}} */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -200,7 +289,7 @@ export default function ContactUs() {
                 />
               </motion.div>
 
-              {/* Email Field */}
+              {/* Email Field - matches template {{email}} */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -220,7 +309,7 @@ export default function ContactUs() {
                 />
               </motion.div>
 
-              {/* Category Field */}
+              {/* Category Field - matches template {{category}} */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -246,7 +335,7 @@ export default function ContactUs() {
                 </select>
               </motion.div>
 
-              {/* Message Field */}
+              {/* Message Field - matches template {{message}} */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -269,11 +358,23 @@ export default function ContactUs() {
               {/* Submit Button */}
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full bg-black text-white py-4 rounded-xl font-semibold text-lg hover:bg-gray-800 transition-all duration-300 shadow-lg"
+                disabled={isLoading}
+                whileHover={{ scale: isLoading ? 1 : 1.02 }}
+                whileTap={{ scale: isLoading ? 1 : 0.98 }}
+                className={`w-full py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg ${
+                  isLoading 
+                    ? 'bg-gray-400 cursor-not-allowed' 
+                    : 'bg-black text-white hover:bg-gray-800'
+                }`}
               >
-                Send Message
+                {isLoading ? (
+                  <div className="flex items-center justify-center">
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                    Sending...
+                  </div>
+                ) : (
+                  'Send Message'
+                )}
               </motion.button>
             </form>
 
